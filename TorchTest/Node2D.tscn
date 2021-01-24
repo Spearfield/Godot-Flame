@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Smoke.png" type="Texture" id=2]
+[ext_resource path="res://Node2D.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0.0229885, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.0344828, 0.723356 ), 0.0, 0.0, 0, 0, Vector2( 0.178161, 0.896083 ), 0.0, 0.0, 0, 0, Vector2( 0.574713, 0.872727 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.727273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.119205, 0.238411, 0.635762, 1 )
+colors = PoolColorArray( 0.501961, 0, 0, 0, 1, 0, 0, 1, 0.898039, 0.364706, 0.121569, 1, 0.984314, 0.537255, 0.00392157, 1, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0.0264901, 0.543046, 0.821192, 0.940397, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.882353, 0.882353, 0.882353, 0, 0.921875, 0.888537, 0.0684204, 1, 1, 0.199219, 0, 1, 1, 1, 1, 0 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( -1.79297, 0.87442 )
+script = ExtResource( 3 )
+
+[node name="MainFlame" type="CPUParticles2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( 2.29039, -0.686611 )
+amount = 15
+local_coords = false
+texture = ExtResource( 2 )
+direction = Vector2( 0, -1 )
+spread = 9.68
+gravity = Vector2( 0, -45 )
+initial_velocity = 250.0
+angular_velocity = -92.9
+angular_velocity_random = 1.0
+damping_random = 1.0
+angle_random = 1.0
+scale_amount_random = 0.66
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sparcles" type="CPUParticles2D" parent="."]
+material = SubResource( 4 )
+amount = 16
+local_coords = false
+direction = Vector2( 0, -1 )
+spread = 20.0
+gravity = Vector2( 0, -45 )
+initial_velocity = 250.0
+initial_velocity_random = 1.0
+angular_velocity = -92.0
+angular_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 38.71
+radial_accel_random = 0.37
+scale_amount = 2.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
